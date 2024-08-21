@@ -10,7 +10,8 @@ namespace combatSystem.abilitySystem
         public static void CastProjectile(IProjectileAbility ability, IStats stats, Vector3 targetPosition)
         {
             Vector3 direction = targetPosition - stats.Transform.position;
-            GameObject projectileInstance = Object.Instantiate(ability.ProjectilePrefab, stats.Transform.position, Quaternion.identity);
+            Vector3 initialPosition = (direction * (float)0.1) + stats.Transform.position;
+            GameObject projectileInstance = Object.Instantiate(ability.ProjectilePrefab, initialPosition, Quaternion.identity);
             projectileInstance.transform.right = direction;
             AbilityProjectile abilityProjectile = projectileInstance.GetComponent<AbilityProjectile>();
             if (abilityProjectile != null)
