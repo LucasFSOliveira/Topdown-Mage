@@ -1,6 +1,6 @@
 ﻿namespace Enemies
 {
-    public interface IEnemy
+    public interface IEnemyActions
     {
         void MoveToPlayer();
         void Attack();

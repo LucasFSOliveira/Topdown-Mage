@@ -9,6 +9,7 @@ namespace combatSystem
         float Armor { get; }
         float AttackSpeed { get; }
         float CooldownReduction { get; }
+        float MovementSpeed { get; }
         Transform Transform { get; }
 
         void ChangeDamage(float amount);
@@ -16,5 +17,6 @@ namespace combatSystem
         void ChangeArmor(float amount);
         void ChangeAttackSpeed(float amount);
         void ChangeCooldownReduction(float amount);
+        void ChangeMovementSpeed(float amount);
     }
 }

@@ -1,15 +1,18 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 
 namespace Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
-        [SerializeField] private Transform spawnPoint;
-        [SerializeField] private World world;
+        private Transform spawnPoint;
+        private LevelManager levelManager;
 
-        private void Start()
+        public void Initialize(LevelManager levelManager1)
         {
+            spawnPoint = GetComponent<Transform>();
+            
             InvokeRepeating(nameof(SpawnEnemy), 0f, 5f);
         }
 
@@ -19,7 +22,7 @@ namespace Enemies
             Enemy enemy = enemyObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.Initialize(world);
+                enemy.Initialize(levelManager);
             }
         }
     }

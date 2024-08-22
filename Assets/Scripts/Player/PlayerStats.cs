@@ -13,6 +13,8 @@ namespace Player
         [SerializeField] private float armor;
         [SerializeField] private float attackSpeed;
         [SerializeField] private float cooldownReduction;
+        [SerializeField] private float movementSpeed;
+        private new Transform transform;
 
         public Health Health => health;
         public float Damage => damage;
@@ -20,12 +22,14 @@ namespace Player
         public float Armor => armor;
         public float AttackSpeed => attackSpeed;
         public float CooldownReduction => cooldownReduction;
+        public float MovementSpeed => movementSpeed;
         public Transform Transform => transform;
 
         private void Start()
         {
             health = gameObject.AddComponent<Health>();
             health.setMaxHealth(maxHealth);
+            transform = GetComponent<Transform>();
         }
 
         public void ChangeHealth(float amount)
@@ -56,6 +60,11 @@ namespace Player
         public void ChangeCooldownReduction(float amount)
         {
             cooldownReduction += amount;
+        }
+
+        public void ChangeMovementSpeed(float amount)
+        {
+            movementSpeed += amount;
         }
     }
 }

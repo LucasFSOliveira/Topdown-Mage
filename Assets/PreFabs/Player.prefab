@@ -51,12 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da04d9db304b49d2aa8788b19f59d6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 1000
   damage: 80
   magicPower: 100
   armor: 40
-  attackSpeed: 1
+  attackSpeed: 0.8
   cooldownReduction: 10
+  movementSpeed: 5
 --- !u!114 &9182692580599186360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646991503e7902942b550d57ad5cb0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   animator: {fileID: 2801245589324148734}
   view: {fileID: 6811633249438571061}
 --- !u!114 &2576376672453656621

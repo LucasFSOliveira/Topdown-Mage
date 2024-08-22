@@ -1,18 +1,17 @@
 ﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Enemies
+namespace Enemies.enemyTypes.generic
 {
-    public class Enemy : MonoBehaviour, IEnemy
+    public class EnemyActions : MonoBehaviour, IEnemyActions
     {
-        [SerializeField] private EnemyStats stats;
-        [SerializeField] private EnemyBehaviour behaviour;
-        private World world;
         private NavMeshAgent navMeshAgent;
-
-        private void Awake()
+        private LevelManager levelManager;
+        public void Initialize(LevelManager levelManagerParameter)
         {
+            this.levelManager = levelManagerParameter; 
             navMeshAgent = GetComponent<NavMeshAgent>();
             if (navMeshAgent == null)
             {
@@ -20,20 +19,15 @@ namespace Enemies
             }
         }
 
-        public void Initialize(World worldParameter)
-        {
-            this.world = worldParameter;
-        }
-
         public void MoveToPlayer()
         {
-            if (world == null || world.Player == null)
+            if (levelManager == null || levelManager.Player == null)
             {
                 Debug.LogError("World or Player is not assigned.");
                 return;
             }
 
-            Vector3 playerPosition = world.Player.transform.position;
+            Vector3 playerPosition = levelManager.Player.transform.position;
             navMeshAgent.SetDestination(playerPosition);
         }
 
@@ -51,5 +45,7 @@ namespace Enemies
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

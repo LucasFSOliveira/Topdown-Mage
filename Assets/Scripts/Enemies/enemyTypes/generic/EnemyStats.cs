@@ -2,7 +2,7 @@
 using healthSystem;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.enemyTypes.generic
 {
     public class EnemyStats : MonoBehaviour, IStats
     {
@@ -13,19 +13,23 @@ namespace Enemies
         [SerializeField] private float armor;
         [SerializeField] private float attackSpeed;
         [SerializeField] private float cooldownReduction;
-
+        [SerializeField] private float movementSpeed;
+        private new Transform transform;
+        
         public Health Health => health;
         public float Damage => damage;
         public float MagicPower => magicPower;
         public float Armor => armor;
         public float AttackSpeed => attackSpeed;
         public float CooldownReduction => cooldownReduction;
+        public float MovementSpeed => movementSpeed;
         public Transform Transform => transform;
 
         private void Start()
         {
             health = gameObject.AddComponent<Health>();
             health.setMaxHealth(maxHealth);
+            transform = GetComponent<Transform>();
         }
 
         public void ChangeHealth(float amount)
@@ -56,6 +60,11 @@ namespace Enemies
         public void ChangeCooldownReduction(float amount)
         {
             cooldownReduction += amount;
+        }
+
+        public void ChangeMovementSpeed(float amount)
+        {
+            movementSpeed += amount;
         }
     }
 }
