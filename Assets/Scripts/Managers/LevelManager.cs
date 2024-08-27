@@ -9,8 +9,6 @@ namespace Managers
         [SerializeField] private GameObject playerPrefab; 
         private List<GameObject> herosPreFab;
         private List<GameObject> enemiesPreFab;
-        [SerializeField] private List<GameObject> enemySpawnersPrefab;
-        [SerializeField] private List<GameObject> enemySpawners;
     
         public GameObject Player { get; private set; }
 
@@ -20,11 +18,6 @@ namespace Managers
             enemiesPreFab = new List<GameObject>();
             AddHero(playerPrefab);
             Player = playerPrefab;
-        
-            foreach (var enemySpawner in enemySpawners)
-            {
-                enemySpawner.GetComponent<EnemySpawner>().Initialize(this);
-            }
         }
 
         private void AddHero(GameObject hero)
@@ -45,19 +38,6 @@ namespace Managers
         public void RemoveEnemy(GameObject enemy)
         {
             enemiesPreFab.Remove(enemy);
-        }
-        
-        private void SpawnEnemySpawners()
-        {
-            foreach (var enemySpawner in enemySpawnersPrefab)
-            {
-                var spawnpoint = new Vector3(Random.Range(0, 10), Random.Range(0, 10), -4);
-                GameObject spawner = Instantiate(enemySpawner, spawnpoint, Quaternion.identity);
-                spawner.GetComponent<EnemySpawner>().Initialize(this);
-                enemySpawners.Add(spawner);
-            }
-            
-            
         }
     }
 }

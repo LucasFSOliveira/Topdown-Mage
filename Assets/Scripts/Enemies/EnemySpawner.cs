@@ -6,13 +6,13 @@ namespace Enemies
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
-        private Transform spawnPoint;
         private LevelManager levelManager;
+        private Transform spawnPoint;
 
-        public void Initialize(LevelManager levelManager1)
+        public void Awake()
         {
+            levelManager = FindObjectOfType<LevelManager>();
             spawnPoint = GetComponent<Transform>();
-            
             InvokeRepeating(nameof(SpawnEnemy), 0f, 5f);
         }
 

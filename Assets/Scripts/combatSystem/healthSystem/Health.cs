@@ -7,7 +7,7 @@ namespace healthSystem
 {
     public class Health : MonoBehaviour, IDamageable
     {
-        [SerializeField] private float maxHealth;
+        private float maxHealth;
         public float MaxHealth => maxHealth;
         public float CurrentHealth { get; private set; }
 

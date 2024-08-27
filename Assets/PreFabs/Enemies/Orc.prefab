@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5223804486815001520, guid: f912c24edc4c3fa47a1e267ee9e64dda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.54
       objectReference: {fileID: 0}
     - target: {fileID: 5223804486815001520, guid: f912c24edc4c3fa47a1e267ee9e64dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -6.25
       objectReference: {fileID: 0}
     - target: {fileID: 5223804486815001520, guid: f912c24edc4c3fa47a1e267ee9e64dda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8213604497772222275, guid: f912c24edc4c3fa47a1e267ee9e64dda, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Orc
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

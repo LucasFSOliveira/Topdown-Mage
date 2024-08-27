@@ -7,13 +7,13 @@ namespace Enemies.enemyTypes.generic
 {
     public class EnemyActions : MonoBehaviour, IEnemyActions
     {
-        private NavMeshAgent navMeshAgent;
+        private NavMeshAgent agent;
         private LevelManager levelManager;
         public void Initialize(LevelManager levelManagerParameter)
         {
             this.levelManager = levelManagerParameter; 
-            navMeshAgent = GetComponent<NavMeshAgent>();
-            if (navMeshAgent == null)
+            agent = GetComponent<NavMeshAgent>();
+            if (agent == null)
             {
                 Debug.LogError("NavMeshAgent component is missing on the enemy.");
             }
@@ -21,14 +21,14 @@ namespace Enemies.enemyTypes.generic
 
         public void MoveToPlayer()
         {
-            if (levelManager == null || levelManager.Player == null)
+            if (levelManager?.Player is null)
             {
                 Debug.LogError("World or Player is not assigned.");
                 return;
             }
 
             Vector3 playerPosition = levelManager.Player.transform.position;
-            navMeshAgent.SetDestination(playerPosition);
+            agent.SetDestination(playerPosition);
         }
 
         public void Attack()
