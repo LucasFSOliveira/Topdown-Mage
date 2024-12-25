@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using Enemies.enemyTypes.generic;
+using Managers;
 using UnityEngine;
 
 namespace Enemies
@@ -9,7 +10,7 @@ namespace Enemies
         private LevelManager levelManager;
         private Transform spawnPoint;
 
-        public void Awake()
+        public void Start()
         {
             levelManager = FindObjectOfType<LevelManager>();
             spawnPoint = GetComponent<Transform>();
@@ -19,11 +20,11 @@ namespace Enemies
         private void SpawnEnemy()
         {
             GameObject enemyObject = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-            Enemy enemy = enemyObject.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.Initialize(levelManager);
-            }
+            EnemyBehaviour enemyBehaviour = enemyObject.GetComponent<EnemyBehaviour>();
+            
+            enemyBehaviour.Initialize(levelManager);
+            levelManager.AddEnemy(enemyObject);
+            
         }
     }
 }

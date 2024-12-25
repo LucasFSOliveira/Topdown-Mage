@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 9182692580599186360}
   - component: {fileID: 610414960521569083}
   - component: {fileID: 2576376672453656621}
-  - component: {fileID: 4325899746507613031}
-  - component: {fileID: 8531363917480406465}
+  - component: {fileID: 1651708848430114040}
+  - component: {fileID: 7678886027099050022}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 4325899746507613031}
-  - {fileID: 8531363917480406465}
+  - {fileID: 1651708848430114040}
+  - {fileID: 7678886027099050022}
 --- !u!114 &610414960521569083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9c9c3627f740fba2651cf80c7640fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4325899746507613031
+--- !u!114 &1651708848430114040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,12 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d8fa083cf84693980aa0b016b02555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4725126259993459278, guid: 4ed0206bf714845b79e838d5a143f1fc, type: 3}
+  projectilePrefab: {fileID: 6860067230765634480, guid: 9ef6caa4514824a7d8d6114685053000, type: 3}
   damageMultiplier: 1
   fireBallCooldown: 2
   projectileSpeed: 5
   projectileLifetime: 3
---- !u!114 &8531363917480406465
+--- !u!114 &7678886027099050022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

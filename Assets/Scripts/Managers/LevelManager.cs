@@ -1,43 +1,36 @@
 ﻿using System.Collections.Generic;
-using Enemies;
 using UnityEngine;
 
 namespace Managers
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] private GameObject playerPrefab; 
-        private List<GameObject> herosPreFab;
-        private List<GameObject> enemiesPreFab;
-    
+        private List<GameObject> enemies;
         public GameObject Player { get; private set; }
 
         private void Awake()
         {
-            herosPreFab = new List<GameObject>();
-            enemiesPreFab = new List<GameObject>();
-            AddHero(playerPrefab);
-            Player = playerPrefab;
-        }
-
-        private void AddHero(GameObject hero)
-        {
-            herosPreFab.Add(hero);
+            enemies = new List<GameObject>();
+            FindAndAssignPlayer();
         }
 
         public void AddEnemy(GameObject enemy)
         {
-            enemiesPreFab.Add(enemy);
-        }
-
-        public void RemoveHero(GameObject hero)
-        {
-            herosPreFab.Remove(hero);
+            enemies.Add(enemy);
         }
 
         public void RemoveEnemy(GameObject enemy)
         {
-            enemiesPreFab.Remove(enemy);
+            enemies.Remove(enemy);
+        }
+
+        private void FindAndAssignPlayer()
+        {
+            Player = GameObject.FindWithTag("Player");
+            if (Player == null)
+            {
+                Debug.LogError("Player not found in the scene.");
+            }
         }
     }
 }

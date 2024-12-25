@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 5934907863342522670, guid: f5e2996f9cf471d4b935ac3154f211de, type: 3}
+    - target: {fileID: 1788523687717661890, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788523687717661890, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779574621234392559, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5272021099203264816, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
       propertyPath: m_Name
       value: OrcSpawner
@@ -26,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5442325357456390145, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5442325357456390145, guid: 5d85df3bee13f4a4089cc7aaf165254e, type: 3}
       propertyPath: m_LocalRotation.w

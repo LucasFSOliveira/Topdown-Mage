@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1770777596016541075}
   m_Layer: 0
   m_Name: World
-  m_TagString: Untagged
+  m_TagString: LevelManagerHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8ab1479d874ee8911c354a8d6c516a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3002337709481807384, guid: 46a0b7f0adc60754baa68a11b63b637f, type: 3}
 --- !u!1001 &2205156911766442700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64,7 +63,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4586929867099703873, guid: 80d5a9fa57244044eb7e51833862dd8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.410035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586929867099703873, guid: 80d5a9fa57244044eb7e51833862dd8d, type: 3}
       propertyPath: m_LocalRotation.w

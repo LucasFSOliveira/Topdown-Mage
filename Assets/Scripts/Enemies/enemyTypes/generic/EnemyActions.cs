@@ -1,5 +1,4 @@
 ﻿using System;
-using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,26 +7,24 @@ namespace Enemies.enemyTypes.generic
     public class EnemyActions : MonoBehaviour, IEnemyActions
     {
         private NavMeshAgent agent;
-        private LevelManager levelManager;
-        public void Initialize(LevelManager levelManagerParameter)
+        public void Start()
         {
-            this.levelManager = levelManagerParameter; 
             agent = GetComponent<NavMeshAgent>();
+            
             if (agent == null)
             {
                 Debug.LogError("NavMeshAgent component is missing on the enemy.");
             }
+            else
+            {
+                agent.updateRotation = false;
+                agent.updateUpAxis = false;
+            }
         }
 
-        public void MoveToPlayer()
+        public void MoveToPlayer(Vector3 playerPosition, float movementSpeed)
         {
-            if (levelManager?.Player is null)
-            {
-                Debug.LogError("World or Player is not assigned.");
-                return;
-            }
-
-            Vector3 playerPosition = levelManager.Player.transform.position;
+            agent.speed = movementSpeed;
             agent.SetDestination(playerPosition);
         }
 

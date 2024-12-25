@@ -6,20 +6,28 @@ namespace Enemies.enemyTypes.generic
     public class EnemyBehaviour : MonoBehaviour
     {
         private LevelManager levelManager;
-        private EnemyStats stats;
-        private EnemyActions actions;
-        
+        [SerializeField] private EnemyActions actions;
+        [SerializeField] private EnemyStats stats;
+
         public void Initialize(LevelManager levelManagerParameter)
         {
-            this.levelManager = levelManagerParameter;
-            actions.Initialize(levelManagerParameter);
+            levelManager = levelManagerParameter;
         }
 
         private void Update()
         {
-            actions.MoveToPlayer();    
+            if (levelManager is null)
+            {
+                GameObject levelManagerHolder = GameObject.FindWithTag("LevelManagerHolder");
+                levelManager = levelManagerHolder.GetComponent<LevelManager>();
+            }
+
+            actions.MoveToPlayer(levelManager.Player.transform.position, stats.MovementSpeed);
         }
 
-        
+        private void OnDestroy()
+        {
+            levelManager.RemoveEnemy(gameObject);
+        }
     }
 }

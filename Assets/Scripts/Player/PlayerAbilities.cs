@@ -13,7 +13,8 @@ namespace Player
         public List<IAbility> Abilities => abilities.ConvertAll(ability => (IAbility)ability);
 
         private void Update()
-        {
+        {   
+            if (abilities.Count <= 0) return;
             foreach (var ability in abilities)
             {
                 ability.Update();
