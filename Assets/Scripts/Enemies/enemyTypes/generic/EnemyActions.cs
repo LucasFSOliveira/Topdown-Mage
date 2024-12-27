@@ -7,8 +7,10 @@ namespace Enemies.enemyTypes.generic
     public class EnemyActions : MonoBehaviour, IEnemyActions
     {
         private NavMeshAgent agent;
+        private EnemyAnimationHandler animationHandler;
         public void Start()
         {
+            animationHandler = GetComponent<EnemyAnimationHandler>();
             agent = GetComponent<NavMeshAgent>();
             
             if (agent == null)
@@ -26,6 +28,7 @@ namespace Enemies.enemyTypes.generic
         {
             agent.speed = movementSpeed;
             agent.SetDestination(playerPosition);
+            animationHandler.Move(playerPosition);
         }
 
         public void Attack()
