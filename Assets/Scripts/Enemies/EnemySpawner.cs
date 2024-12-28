@@ -20,9 +20,9 @@ namespace Enemies
         private void SpawnEnemy()
         {
             GameObject enemyObject = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-            EnemyBehaviour enemyBehaviour = enemyObject.GetComponent<EnemyBehaviour>();
+            DumEnemyBehaviour dumEnemyBehaviour = enemyObject.GetComponent<DumEnemyBehaviour>();
             
-            enemyBehaviour.Initialize(levelManager);
+            dumEnemyBehaviour.Initialize(levelManager);
             levelManager.AddEnemy(enemyObject);
             
         }

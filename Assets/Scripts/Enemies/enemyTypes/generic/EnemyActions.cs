@@ -1,4 +1,5 @@
 ﻿using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,29 +7,27 @@ namespace Enemies.enemyTypes.generic
 {
     public class EnemyActions : MonoBehaviour, IEnemyActions
     {
+        [SerializeField] private EnemyStats stats;
+        
+        private LevelManager levelManager;
+        public LevelManager LevelManager => levelManager;
         private NavMeshAgent agent;
-        private EnemyAnimationHandler animationHandler;
+
         public void Start()
         {
-            animationHandler = GetComponent<EnemyAnimationHandler>();
-            agent = GetComponent<NavMeshAgent>();
+            GameObject levelManagerHolder = GameObject.FindWithTag("LevelManagerHolder");
+            levelManager = levelManagerHolder.GetComponent<LevelManager>();
             
-            if (agent == null)
-            {
-                Debug.LogError("NavMeshAgent component is missing on the enemy.");
-            }
-            else
-            {
-                agent.updateRotation = false;
-                agent.updateUpAxis = false;
-            }
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
         }
 
-        public void MoveToPlayer(Vector3 playerPosition, float movementSpeed)
+        public void Chase()
         {
-            agent.speed = movementSpeed;
+            Vector3 playerPosition = levelManager.Player.transform.position;
+            agent.speed = stats.MovementSpeed;
             agent.SetDestination(playerPosition);
-            animationHandler.Move(playerPosition);
         }
 
         public void Attack()
@@ -46,6 +45,9 @@ namespace Enemies.enemyTypes.generic
             throw new NotImplementedException();
         }
 
-        
+        public void Idle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

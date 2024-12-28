@@ -4,9 +4,10 @@ namespace Enemies
 {
     public interface IEnemyActions
     {
-        void MoveToPlayer(Vector3 playerPosition, float movementSpeed);
+        void Chase();
         void Attack();
         void TakeDamage(float amount);
         void Die();
+        void Idle();
     }
 }

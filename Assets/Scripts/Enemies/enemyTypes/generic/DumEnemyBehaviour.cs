@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemies.enemyTypes.generic
 {
-    public class EnemyBehaviour : MonoBehaviour
+    public class DumEnemyBehaviour : MonoBehaviour
     {
         private LevelManager levelManager;
         [SerializeField] private EnemyActions actions;
@@ -21,8 +21,8 @@ namespace Enemies.enemyTypes.generic
                 GameObject levelManagerHolder = GameObject.FindWithTag("LevelManagerHolder");
                 levelManager = levelManagerHolder.GetComponent<LevelManager>();
             }
-
-            actions.MoveToPlayer(levelManager.Player.transform.position, stats.MovementSpeed);
+            
+            actions.Chase();
         }
 
         private void OnDestroy()

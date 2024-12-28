@@ -1,5 +1,6 @@
 ﻿using combatSystem;
 using healthSystem;
+using Scriptable_Objects_Scripts;
 using UnityEngine;
 
 namespace Player
@@ -7,20 +8,26 @@ namespace Player
     public class PlayerStats : MonoBehaviour, IStats
     {
         private Health health;
+        [SerializeField] private CharacterType classType;
         [SerializeField] private float maxHealth;
         [SerializeField] private float damage;
         [SerializeField] private float magicPower;
         [SerializeField] private float armor;
         [SerializeField] private float attackSpeed;
+        [SerializeField] private float attackRange;
+        [SerializeField] private float visionRange;
         [SerializeField] private float cooldownReduction;
         [SerializeField] private float movementSpeed;
         private new Transform transform;
 
         public Health Health => health;
+        public CharacterType ClassType => classType;
         public float Damage => damage;
         public float MagicPower => magicPower;
         public float Armor => armor;
         public float AttackSpeed => attackSpeed;
+        public float AttackRange => attackRange;
+        public float VisionRange => visionRange;
         public float CooldownReduction => cooldownReduction;
         public float MovementSpeed => movementSpeed;
         public Transform Transform => transform;
@@ -55,6 +62,16 @@ namespace Player
         public void ChangeAttackSpeed(float amount)
         {
             attackSpeed *= amount;
+        }
+        
+        public void ChangeAttackRange(float amount)
+        {
+            attackRange *= amount;
+        }
+
+        public void ChangeVisionRange(float amount)
+        {
+            visionRange *= amount;
         }
 
         public void ChangeCooldownReduction(float amount)
