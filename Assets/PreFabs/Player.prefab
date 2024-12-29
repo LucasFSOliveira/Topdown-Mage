@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2576376672453656621}
   - component: {fileID: 1651708848430114040}
   - component: {fileID: 7678886027099050022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -57,6 +57,7 @@ MonoBehaviour:
   armor: 40
   attackSpeed: 0.8
   attackRange: 5
+  visionRange: 0
   cooldownReduction: 10
   movementSpeed: 5
 --- !u!114 &9182692580599186360
@@ -143,7 +144,7 @@ GameObject:
   - component: {fileID: 1210389557498704414}
   - component: {fileID: 6820878204568751684}
   - component: {fileID: 2801245589324148734}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

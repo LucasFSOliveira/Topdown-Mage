@@ -3,7 +3,7 @@ using healthSystem;
 using Scriptable_Objects_Scripts;
 using UnityEngine;
 
-namespace Enemies.enemyTypes.generic
+namespace Enemies.generic
 {
     public class EnemyStats : MonoBehaviour, IStats
     {

@@ -1,5 +1,4 @@
-﻿using Enemies.enemyTypes.generic;
-using Managers;
+﻿using Managers;
 using UnityEngine;
 
 namespace Enemies
@@ -20,9 +19,6 @@ namespace Enemies
         private void SpawnEnemy()
         {
             GameObject enemyObject = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-            DumEnemyBehaviour dumEnemyBehaviour = enemyObject.GetComponent<DumEnemyBehaviour>();
-            
-            dumEnemyBehaviour.Initialize(levelManager);
             levelManager.AddEnemy(enemyObject);
             
         }

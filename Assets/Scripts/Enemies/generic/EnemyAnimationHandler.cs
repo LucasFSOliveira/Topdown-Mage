@@ -1,8 +1,8 @@
-using Enemies.enemyTypes.enemyAI;
+using System;
 using Managers;
 using UnityEngine;
 
-namespace Enemies.enemyTypes.generic
+namespace Enemies.generic
 {
     public class EnemyAnimationHandler : MonoBehaviour
     {
@@ -20,13 +20,13 @@ namespace Enemies.enemyTypes.generic
             view = GetComponentInChildren<Transform>();
             animator = GetComponentInChildren<Animator>();
             levelManager = GameObject.FindWithTag("LevelManagerHolder").GetComponent<LevelManager>();
-            FixEnemySpawnRotation();
+            //FixEnemySpawnRotation();
         }
         public void FixEnemySpawnRotation()
         {
             enemyTransform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
+        
         public void Chase()
         {
             Vector3 enemyDirection = levelManager.Player.transform.position - enemyTransform.position;
@@ -36,25 +36,10 @@ namespace Enemies.enemyTypes.generic
                 view.transform.right = Vector2.Dot(enemyDirection, Vector2.right) * Vector2.right;
             }
         }
-
+        
         public void Update()
         {
-            currentState = GetComponent<EnemyBehaviour>().StateMachine.CurrentState.GetType().Name;
-            switch (currentState)
-            {
-                case "Idle":
-                    
-                    break;
-                case "Chase":
-                    Chase();
-                    break;
-                case "Attack":
-                    
-                    break;
-                case "Dead":
-                    
-                    break;
-            }
+            throw new NotImplementedException();
         }
     }
 }

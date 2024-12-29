@@ -1,5 +1,6 @@
 ﻿using BaseStateMachines;
-namespace Enemies.enemyTypes.enemyAI.conditions
+
+namespace Enemies.enemyAI.conditions
 {
     public class OffVisionRange : Condition
     {

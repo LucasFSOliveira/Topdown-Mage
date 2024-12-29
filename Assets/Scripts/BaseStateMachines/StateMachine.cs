@@ -5,12 +5,14 @@
         public StateMachine(IState startingState) => ChangeState(startingState);
 
         public IState CurrentState { get; private set; }
+        public IState PreviousState { get; private set; }
 
         public void ChangeState(IState state)
         {
             // Exit the current state
             CurrentState?.Exit();
 
+            PreviousState = CurrentState;
             // Set the new state
             CurrentState = state;
 
@@ -29,6 +31,8 @@
                 // Transition to the state
                 ChangeState(nextState);
             }
+            
+            CurrentState?.Execute();
         }
     }
 }

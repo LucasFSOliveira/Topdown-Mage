@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 namespace BaseStateMachines
 {
-    public class State : MonoBehaviour, IState
+    public abstract class State : MonoBehaviour, IState
     {
         [SerializeField] List<Transition> transitions = new List<Transition>();
 
@@ -20,8 +21,10 @@ namespace BaseStateMachines
             return null;
         }
 
-        public void Enter() => gameObject.SetActive(true);
+        public abstract void Enter();
 
-        public void Exit() => gameObject.SetActive(false);
+        public abstract void Exit();
+
+        public abstract void Execute();
     }
 }

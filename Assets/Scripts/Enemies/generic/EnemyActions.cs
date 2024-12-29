@@ -1,33 +1,26 @@
 ﻿using System;
-using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Enemies.enemyTypes.generic
+namespace Enemies.generic
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class EnemyActions : MonoBehaviour, IEnemyActions
     {
         [SerializeField] private EnemyStats stats;
-        
-        private LevelManager levelManager;
-        public LevelManager LevelManager => levelManager;
+        [SerializeField] private LayerMask targetLayer;
+        [SerializeField] private string targetTag;
         private NavMeshAgent agent;
 
         public void Start()
         {
-            GameObject levelManagerHolder = GameObject.FindWithTag("LevelManagerHolder");
-            levelManager = levelManagerHolder.GetComponent<LevelManager>();
-            
             agent = GetComponent<NavMeshAgent>();
-            agent.updateRotation = false;
-            agent.updateUpAxis = false;
         }
 
-        public void Chase()
+        public void SearchFor()
         {
-            Vector3 playerPosition = levelManager.Player.transform.position;
-            agent.speed = stats.MovementSpeed;
-            agent.SetDestination(playerPosition);
+            //agent.speed = stats.MovementSpeed;
+            //agent.SetDestination(playerPosition);
         }
 
         public void Attack()

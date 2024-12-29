@@ -17,7 +17,7 @@ namespace Player
             if (abilities.Count <= 0) return;
             foreach (var ability in abilities)
             {
-                ability.Update();
+                ability.Tick();
             }
         }
 

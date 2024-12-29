@@ -35,7 +35,7 @@ namespace combatSystem.abilitySystem.abilities
 
         protected abstract void Execute(IStats stats, Vector3 targetPosition);
 
-        protected internal virtual void Update()
+        protected internal virtual void Tick()
         {
             if (cooldownTimer > 0f)
             {

@@ -8,5 +8,6 @@
         
         void Exit();
         
+        void Execute();
     }
 }
