@@ -54,8 +54,11 @@ namespace healthSystem
         
         public void changeMaxHealth(float amount)
         {
+            float healthDiff = amount - maxHealth;
             maxHealth += amount;
-            if (maxHealth < CurrentHealth) CurrentHealth = maxHealth;
+            
+            if (healthDiff > 0) CurrentHealth += healthDiff;
+            else if (maxHealth < CurrentHealth) CurrentHealth = maxHealth;
         }
         
         bool IDamageable.IsPlayer()

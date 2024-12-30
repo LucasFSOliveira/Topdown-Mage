@@ -4,16 +4,10 @@ namespace Enemies.enemyAI.conditions
 {
     public class OffVisionRange : Condition
     {
-        private OnVisionRange onVisionRange;
-
-        private void Start()
-        {
-            onVisionRange = GetComponent<OnVisionRange>();
-        }
-
         public override bool IsMet()
         {
-            return !onVisionRange.IsMet();
+            var player = enemyActions.SearchForPlayer(enemyActions.stats.VisionRange);
+            return player is null;
         }
     }
 }

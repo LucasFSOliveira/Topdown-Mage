@@ -1,18 +1,11 @@
-﻿using System;
-using BaseStateMachines;
+﻿using BaseStateMachines;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Enemies.enemyAI
 {
     public class EnemyBehaviour : MonoBehaviour
     {
         [SerializeField] private State startingState;
-
-        private void Start()
-        {
-            throw new NotImplementedException();
-        }
 
         private StateMachine stateMachine;
         private StateMachine StateMachine

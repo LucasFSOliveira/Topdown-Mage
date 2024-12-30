@@ -4,15 +4,17 @@
     {
         public StateMachine(IState startingState) => ChangeState(startingState);
 
-        public IState CurrentState { get; private set; }
-        public IState PreviousState { get; private set; }
+        private IState CurrentState { get; set; }
+        //public IState CurrentState { get; private set; }
+        //public IState PreviousState { get; private set; }
 
         public void ChangeState(IState state)
         {
             // Exit the current state
             CurrentState?.Exit();
 
-            PreviousState = CurrentState;
+            // Save the current state as the previous state
+            //PreviousState = CurrentState;
             // Set the new state
             CurrentState = state;
 

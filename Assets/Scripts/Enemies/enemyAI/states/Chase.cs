@@ -1,8 +1,8 @@
-﻿using BaseStateMachines;
+﻿using State = BaseStateMachines.State;
 
 namespace Enemies.enemyAI.states
 {
-    public class Idle : State
+    public class Chase : State
     {
         public override void Enter() => gameObject.SetActive(true);
 
@@ -10,7 +10,7 @@ namespace Enemies.enemyAI.states
 
         public override void Execute()
         {
-            
+            enemyActions.MoveToPlayer();
         }   
     }
 }

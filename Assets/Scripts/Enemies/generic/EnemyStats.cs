@@ -7,7 +7,7 @@ namespace Enemies.generic
 {
     public class EnemyStats : MonoBehaviour, IStats
     {
-        private Health health;
+        [SerializeField] private Health health;
         [SerializeField] private CharacterType classType;
         [SerializeField] private float maxHealth;
         [SerializeField] private float damage;
@@ -18,7 +18,6 @@ namespace Enemies.generic
         [SerializeField] private float visionRange;
         [SerializeField] private float cooldownReduction;
         [SerializeField] private float movementSpeed;
-        private new Transform transform;
 
         public Health Health => health;
         public CharacterType ClassType => classType;
@@ -34,9 +33,7 @@ namespace Enemies.generic
 
         private void Start()
         {
-            health = gameObject.AddComponent<Health>();
             health.setMaxHealth(maxHealth);
-            transform = GetComponent<Transform>();
         }
 
         public void ChangeHealth(float amount)

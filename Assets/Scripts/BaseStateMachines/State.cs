@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.NCalc;
+using Enemies.generic;
 using UnityEngine;
 
 namespace BaseStateMachines
 {
     public abstract class State : MonoBehaviour, IState
     {
-        [SerializeField] List<Transition> transitions = new List<Transition>();
-
+        [SerializeField] protected EnemyActions enemyActions;
+        [SerializeField] protected List<Transition> transitions = new List<Transition>();
+        
         public IState ProcessTransitions()
         {
             foreach (Transition transition in transitions)

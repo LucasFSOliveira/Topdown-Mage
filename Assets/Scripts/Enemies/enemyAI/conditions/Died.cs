@@ -1,12 +1,12 @@
 ﻿using BaseStateMachines;
 
-namespace Enemies.enemyTypes.enemyAI.conditions
+namespace Enemies.enemyAI.conditions
 {
     public class Died : Condition
     {
         public override bool IsMet()
         {
-            throw new System.NotImplementedException();
+            return enemyActions.stats.Health.CurrentHealth <= 0;
         }
     }
 }

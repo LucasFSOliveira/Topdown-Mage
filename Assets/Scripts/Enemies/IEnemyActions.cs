@@ -2,6 +2,7 @@
 
 namespace Enemies
 {
+    //refactor after coding EnemyActions
     public interface IEnemyActions
     {
         void SearchFor();

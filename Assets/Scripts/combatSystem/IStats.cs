@@ -1,10 +1,12 @@
-﻿using Scriptable_Objects_Scripts;
+﻿using healthSystem;
+using Scriptable_Objects_Scripts;
 using UnityEngine;
 
 namespace combatSystem
 {
     public interface IStats
     {
+        Health Health { get; }
         CharacterType ClassType { get; }
         float Damage { get; }
         float MagicPower { get; }
@@ -14,7 +16,6 @@ namespace combatSystem
         float VisionRange { get; }
         float CooldownReduction { get; }
         float MovementSpeed { get; }
-        Transform Transform { get; }
 
         void ChangeHealth(float amount);
         void ChangeDamage(float amount);

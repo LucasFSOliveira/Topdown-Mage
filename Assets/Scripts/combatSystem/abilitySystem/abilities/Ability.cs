@@ -18,7 +18,6 @@ namespace combatSystem.abilitySystem.abilities
             Activate(stats, Vector3.zero);
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
         public virtual void Activate(IStats stats, Vector3 targetPosition)
         {
             if (cooldownTimer <= 0f)

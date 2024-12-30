@@ -6,11 +6,10 @@ namespace combatSystem.abilitySystem
 {
     public static class AbilityCasting
     {
-        // ReSharper disable Unity.PerformanceAnalysis
-        public static void CastProjectile(IProjectileAbility ability, IStats stats, Vector3 targetPosition)
+        public static void CastProjectile(IProjectileAbility ability, IStats stats, Vector3 playerPosition, Vector3 targetPosition)
         {
-            Vector3 direction = targetPosition - stats.Transform.position;
-            Vector3 initialPosition = (direction * (float)0.2) + stats.Transform.position;
+            Vector3 direction = targetPosition - playerPosition;
+            Vector3 initialPosition = (direction * (float)0.2) + playerPosition;
             GameObject projectileInstance = Object.Instantiate(ability.ProjectilePrefab, initialPosition, Quaternion.identity);
             projectileInstance.transform.right = direction;
             AbilityProjectile abilityProjectile = projectileInstance.GetComponent<AbilityProjectile>();

@@ -1,13 +1,13 @@
 ﻿using BaseStateMachines;
-using UnityEngine;
 
-namespace Enemies.enemyTypes.enemyAI.conditions
+namespace Enemies.enemyAI.conditions
 {
     public class OnAttackRange : Condition
     {
         public override bool IsMet()
         {
-            throw new System.NotImplementedException();
+            var player = enemyActions.SearchForPlayer(enemyActions.stats.AttackRange);
+            return player is not null;
         }
     }
 }

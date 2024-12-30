@@ -25,7 +25,7 @@ namespace combatSystem.abilitySystem.abilities
         protected override void Execute(IStats stats, Vector3 targetPosition)
         {
             Debug.Log($"Fireball casted towards {targetPosition}.");
-            AbilityCasting.CastProjectile(this, stats, targetPosition);
+            AbilityCasting.CastProjectile(this, stats, transform.position, targetPosition);
         }
     }
 }

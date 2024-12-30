@@ -7,7 +7,7 @@ namespace Player
 {
     public class PlayerStats : MonoBehaviour, IStats
     {
-        private Health health;
+        [SerializeField] private Health health;
         [SerializeField] private CharacterType classType;
         [SerializeField] private float maxHealth;
         [SerializeField] private float damage;
@@ -30,13 +30,10 @@ namespace Player
         public float VisionRange => visionRange;
         public float CooldownReduction => cooldownReduction;
         public float MovementSpeed => movementSpeed;
-        public Transform Transform => transform;
 
         private void Start()
         {
-            health = gameObject.AddComponent<Health>();
             health.setMaxHealth(maxHealth);
-            transform = GetComponent<Transform>();
         }
 
         public void ChangeHealth(float amount)
